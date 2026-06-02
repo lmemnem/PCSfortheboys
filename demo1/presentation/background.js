@@ -1,13 +1,13 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 
-  if (message.type === "SET_CONFIG") {
+  if (message.type === "confighack") {
     chrome.storage.local.set({
       config: message.config
     });
   }
 
-  if (message.type === "GET_CONFIG") {
+  if (message.type === "getconfig") {
     chrome.storage.local.get("config", (data) => {
       sendResponse(data);
     });

@@ -1,9 +1,9 @@
 window.addEventListener("message", (event) => {
 
-  if (event.data.type === "SET_CONFIG") {
+  if (event.data.type === "confighack") {
 
     chrome.runtime.sendMessage({
-      type: "SET_CONFIG",
+      type: "confighack",
       config: event.data.config
     });
 
@@ -12,7 +12,7 @@ window.addEventListener("message", (event) => {
 
 
 chrome.runtime.sendMessage({
-  type: "GET_CONFIG"
+  type: "confighack"
 }, (response) => {
 
   if (!response?.config) {
